@@ -8,19 +8,17 @@ import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 
-const NewsListCard = ({ item }) => {
+const NewsListCard = ({ item, index }) => {
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        alt="thumbnail image"
-        height="140px"
-        image="https://s.yimg.com/uu/api/res/1.2/uRJMBmQLR595V9G2DmQvCA--~B/aD00MDA7dz03Mjg7YXBwaWQ9eXRhY2h5b24-/https://s.yimg.com/uu/api/res/1.2/Ub6RlHpCUdcWK8kNK_3Yug--~B/aD00MDA7dz03Mjg7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/moneywise_327/0a20af45cfeb2e318582af573d814479"
-      />
-
-      {/* <Typography gutterBottom variant="h5" component="div">
-  {item.content.thumbnail.resolutions[0].url}
-</Typography> */}
+      {item.content.thumbnail && (
+        <CardMedia
+          component="img"
+          alt="thumbnail image"
+          height="140px"
+          image={item.content.thumbnail.resolutions[3].url}
+        />
+      )}
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {item.content.provider.displayName}
@@ -33,7 +31,15 @@ const NewsListCard = ({ item }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        {item.content.clickThroughUrl && (
+          <Button
+            size="small"
+            href={item.content.clickThroughUrl.url}
+            target="_blank"
+          >
+            Learn More
+          </Button>
+        )}
       </CardActions>
     </Card>
   );

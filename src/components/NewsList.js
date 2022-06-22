@@ -11,6 +11,7 @@ import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import { mockGetNewsListData } from "../utils/mockGetNewsListData";
 import NewsListCard from "./NewsListCard";
+import NewsListItem from "./NewsListItem";
 
 const NewsList = () => {
   const [news, setNews] = useState([]);
@@ -35,13 +36,18 @@ const NewsList = () => {
   return (
     <>
       <h1>News!!!</h1>
-      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        {news.map((item) => (
-          <Grid item xs={6}>
-            <NewsListCard item={item} />
+      {/* <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        {news.map((item, index) => (
+          <Grid item xs={6} key={item.id}>
+            <NewsListCard item={item} index={index} />
           </Grid>
         ))}
-      </Grid>
+      </Grid> */}
+      <div className="news__list__container">
+        {mockGetNewsListData.map((item, index) => (
+          <NewsListItem item={item} />
+        ))}
+      </div>
     </>
   );
 };

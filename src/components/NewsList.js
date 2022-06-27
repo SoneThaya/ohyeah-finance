@@ -30,7 +30,6 @@ const NewsList = () => {
 
     //     fetchNewsData();
     setNews(mockGetNewsListData);
-    console.log(news);
   }, [news]);
 
   return (
@@ -45,7 +44,7 @@ const NewsList = () => {
       </Grid> */}
       <div className="news__list__container">
         {mockGetNewsListData.map((item, index) => (
-          <NewsListItem item={item} />
+          <NewsListItem key={item.id} item={item} />
         ))}
       </div>
     </>

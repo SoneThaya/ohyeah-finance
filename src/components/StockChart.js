@@ -28,12 +28,10 @@ const StockChart = () => {
     setCloseQuote(mockTeslaGetChartData.indicators.quote[0].close);
     setOpenQuote(mockTeslaGetChartData.indicators.quote[0].open);
 
-    console.log("high", highQuote);
     convertTimeStamp(mockTeslaGetChartData.timestamp);
 
     createGraphData(convertedArr, highQuote, lowQuote, closeQuote, openQuote);
     setData(graphData.slice(50, 61));
-    console.log(data);
   }, [highQuote]);
 
   let convertedArr = [];
@@ -49,8 +47,6 @@ const StockChart = () => {
         open: arr5[i],
       });
     }
-
-    console.log("graphData", graphData);
   };
 
   const convertTimeStamp = (arr) => {
@@ -58,7 +54,6 @@ const StockChart = () => {
       let theDate = new Date(arr[i] * 1000).toLocaleDateString("en-US");
       convertedArr.push(theDate);
     }
-    console.log("convertedArr", convertedArr);
   };
 
   return (

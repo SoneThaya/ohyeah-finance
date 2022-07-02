@@ -77,6 +77,35 @@ const Summary = () => {
           {mockTeslaGetSummaryData.earnings.earningsChart.earningsDate[1].fmt}
         </Item>
       </Grid>
+      <Grid item xs={6}>
+        <Item>
+          52 Week Range{" "}
+          {mockTeslaGetSummaryData.summaryDetail.fiftyTwoWeekLow.fmt} -{" "}
+          {mockTeslaGetSummaryData.summaryDetail.fiftyTwoWeekHigh.fmt}
+        </Item>
+      </Grid>
+      <Grid item xs={6}>
+        <Item>Forward Dividend & Yield N/A</Item>
+      </Grid>
+      <Grid item xs={6}>
+        <Item>
+          Volume {mockTeslaGetSummaryData.summaryDetail.regularMarketVolume.fmt}
+        </Item>
+      </Grid>
+      <Grid item xs={6}>
+        <Item>Ex-Dividend Date N/A</Item>
+      </Grid>
+      <Grid item xs={6}>
+        <Item>
+          Avg. Volume {mockTeslaGetSummaryData.summaryDetail.averageVolume.fmt}
+        </Item>
+      </Grid>
+      <Grid item xs={6}>
+        <Item>
+          1y Target Est{" "}
+          {mockTeslaGetSummaryData.financialData.targetHighPrice.fmt}
+        </Item>
+      </Grid>
     </Grid>
   );
 };
